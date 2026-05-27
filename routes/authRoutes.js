@@ -51,12 +51,13 @@ router.post("/register", async (req, res) => {
     const sql = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
 
     db.query(sql, [email, hashedPassword, role], (err) => {
-        if (err) {
-            return res.send("Registration Error");
-        }
+    if (err) {
+        console.log("REGISTER ERROR:", err);
+        return res.send("Registration Error");
+    }
 
-        res.redirect("/login");
-    });
+    res.redirect("/login");
+});
 });
 
 router.get("/logout", (req, res) => {
