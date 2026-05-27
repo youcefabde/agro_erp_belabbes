@@ -1,58 +1,88 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
+    font-family: 'Arial', sans-serif;
+    background: #f6f3eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    padding: 50px;
-}
-
-.card {
-    width: 380px;
+    width: 900px;
+    height: 520px;
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-.card h1 {
+.left-side {
+    flex: 1;
+    background: linear-gradient(
+        135deg,
+        #6b8e23,
+        #4f772d,
+        #a3b18a,
+        #d4a373
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     text-align: center;
-    color: #2c3e50;
+    padding: 40px;
+}
+
+.left-side h1 {
+    font-size: 38px;
+}
+
+.right-side {
+    flex: 1;
+    padding: 50px;
+    background: #fffdf8;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: #e9edc9;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tabs button.active {
+    background: #4f772d;
+    color: white;
 }
 
 input, select {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #ccd5ae;
     border-radius: 8px;
 }
 
-button {
+.submit-btn {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
+    background: #4f772d;
+    color: white;
     border: none;
     border-radius: 8px;
-    background: #4f46e5;
-    color: white;
-    font-size: 16px;
     cursor: pointer;
 }
 
-button:hover {
-    background: #3730a3;
-}
-
-.register {
-    border-top: 6px solid #10b981;
-}
-
-.login {
-    border-top: 6px solid #3b82f6;
+.submit-btn:hover {
+    background: #31572c;
 }
