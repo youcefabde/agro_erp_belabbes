@@ -1,58 +1,138 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
 
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/output.css">
-
+  <link href="/output.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
 
-  <div class="p-10">
+<div class="flex min-h-screen">
 
-    <h1 class="text-4xl font-bold text-green-700 mb-8">
-      Agro ERP Dashboard
+  <!-- Sidebar -->
+  <aside class="w-64 bg-green-700 text-white p-6">
+
+    <h1 class="text-3xl font-bold mb-10">
+      Agro ERP
     </h1>
-    <a href="/logout"
-   class="inline-block mb-6 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
-   Logout
-</a>
 
+    <nav class="space-y-3">
+
+      <a href="/admin"
+         class="block bg-green-600 p-3 rounded-xl">
+         Dashboard
+      </a>
+
+      <a href="/clients"
+         class="block hover:bg-green-600 p-3 rounded-xl transition">
+         Clients
+      </a>
+
+      <a href="/produits"
+         class="block hover:bg-green-600 p-3 rounded-xl transition">
+         Produits
+      </a>
+
+      <a href="/factures"
+         class="block hover:bg-green-600 p-3 rounded-xl transition">
+         Factures
+      </a>
+
+      <a href="/logout"
+         class="block bg-red-500 hover:bg-red-600 p-3 rounded-xl transition mt-10 text-center">
+         Logout
+      </a>
+
+    </nav>
+
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10">
+
+    <!-- Top -->
+    <div class="flex justify-between items-center mb-10">
+
+      <div>
+        <h2 class="text-4xl font-bold text-gray-800">
+          Dashboard
+        </h2>
+
+        <p class="text-gray-500 mt-2">
+          Welcome back Admin 👋
+        </p>
+      </div>
+
+      <div class="bg-white px-6 py-3 rounded-xl shadow">
+        ERP Management System
+      </div>
+
+    </div>
+
+    <!-- Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-  <div class="bg-white rounded-2xl shadow p-6 border-l-8 border-blue-500">
-    <h2 class="text-gray-500 text-lg">Clients</h2>
-    <p class="text-5xl font-bold mt-4 text-blue-600">
-      <%= totalClients %>
-    </p>
-  </div>
+      <!-- Clients -->
+      <div class="bg-white p-6 rounded-2xl shadow border-l-8 border-blue-500">
 
-  <div class="bg-white rounded-2xl shadow p-6 border-l-8 border-green-500">
-    <h2 class="text-gray-500 text-lg">Produits</h2>
-    <p class="text-5xl font-bold mt-4 text-green-600">
-      <%= totalProduits %>
-    </p>
-  </div>
+        <h3 class="text-gray-500 text-lg">
+          Total Clients
+        </h3>
 
-  <div class="bg-white rounded-2xl shadow p-6 border-l-8 border-red-500">
-    <h2 class="text-gray-500 text-lg">Factures</h2>
-    <p class="text-5xl font-bold mt-4 text-red-600">
-      <%= totalFactures %>
-    </p>
-  </div>
+        <p class="text-5xl font-bold mt-4 text-blue-600">
+          <%= totalClients %>
+        </p>
+
+      </div>
+
+      <!-- Produits -->
+      <div class="bg-white p-6 rounded-2xl shadow border-l-8 border-green-500">
+
+        <h3 class="text-gray-500 text-lg">
+          Total Produits
+        </h3>
+
+        <p class="text-5xl font-bold mt-4 text-green-600">
+          <%= totalProduits %>
+        </p>
+
+      </div>
+
+      <!-- Factures -->
+      <div class="bg-white p-6 rounded-2xl shadow border-l-8 border-red-500">
+
+        <h3 class="text-gray-500 text-lg">
+          Total Factures
+        </h3>
+
+        <p class="text-5xl font-bold mt-4 text-red-600">
+          <%= totalFactures %>
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- Revenue Card -->
+    <div class="bg-white rounded-2xl shadow p-8 mt-10">
+
+      <h2 class="text-2xl font-bold text-gray-700 mb-4">
+        Chiffre d'affaires
+      </h2>
+
+      <p class="text-6xl font-bold text-green-700">
+        <%= chiffreAffaires %> DA
+      </p>
+
+    </div>
+
+  </main>
 
 </div>
-    
-
-  </div>
 
 </body>
-
-
 </html>
