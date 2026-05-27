@@ -1,70 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clients</title>
 
-    <link rel="stylesheet" href="/style.css">
-
+    <link href="/output.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-gray-100">
 
-<div class="content">
+<div class="flex min-h-screen">
 
-    <h1>Clients</h1>
+    <!-- Sidebar -->
+    <%- include("partials/sidebar") %>
 
-    <form method="POST" action="/add-client">
+    <!-- Main -->
+    <main class="flex-1 p-10">
 
-        <input type="text"
-        name="nom"
-        placeholder="Nom">
+        <!-- Navbar -->
+        <%- include("partials/navbar") %>
 
-        <input type="text"
-        name="telephone"
-        placeholder="Téléphone">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
 
-        <input type="text"
-        name="adresse"
-        placeholder="Adresse">
+            <div>
+                <h1 class="text-4xl font-bold text-gray-800">
+                    Clients
+                </h1>
 
-        <button type="submit">
-            Ajouter
-        </button>
+                <p class="text-gray-500 mt-2">
+                    Manage your clients easily
+                </p>
+            </div>
 
-    </form>
+            <a href="/clients/add"
+               class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-2xl shadow transition">
+               + Add Client
+            </a>
 
-    <br>
+        </div>
 
-    <table border="1" cellpadding="10">
+        <!-- Search -->
+        <div class="bg-white p-5 rounded-2xl shadow mb-6">
 
-        <tr>
+            <input type="text"
+                   placeholder="Search client..."
+                   class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500">
 
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Téléphone</th>
-            <th>Adresse</th>
+        </div>
 
-        </tr>
+        <!-- Table -->
+        <div class="bg-white rounded-2xl shadow overflow-hidden">
 
-        <% clients.forEach(client => { %>
+            <table class="w-full">
 
-            <tr>
+                <thead class="bg-green-600 text-white">
 
-                <td><%= client.id %></td>
+                    <tr>
+                        <th class="p-4 text-left">ID</th>
+                        <th class="p-4 text-left">Name</th>
+                        <th class="p-4 text-left">Phone</th>
+                        <th class="p-4 text-left">Address</th>
+                        <th class="p-4 text-left">Actions</th>
+                    </tr>
 
-                <td><%= client.nom %></td>
+                </thead>
 
-                <td><%= client.telephone %></td>
+                <tbody>
 
-                <td><%= client.adresse %></td>
+                    <% clients.forEach(client => { %>
 
-            </tr>
+                        <tr class="border-b hover:bg-gray-50 transition">
 
-        <% }) %>
+                            <td class="p-4">
+                                <%= client.id %>
+                            </td>
 
-    </table>
+                            <td class="p-4 font-semibold">
+                                <%= client.nom %>
+                            </td>
+
+                            <td class="p-4">
+                                <%= client.telephone %>
+                            </td>
+
+                            <td class="p-4">
+                                <%= client.adresse %>
+                            </td>
+
+                            <td class="p-4 flex gap-3">
+
+                                <a href="/clients/edit/<%= client.id %>"
+                                   class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl">
+                                   Edit
+                                </a>
+
+                                <a href="/clients/delete/<%= client.id %>"
+                                   class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl">
+                                   Delete
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                    <% }) %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Footer -->
+        <%- include("partials/footer") %>
+
+    </main>
 
 </div>
 
