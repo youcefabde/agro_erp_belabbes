@@ -2,12 +2,14 @@ const express = require("express");
 const path = require("path");
 const db = require("./db");
 const app = express();
-const bcrypt = require("bcrypt");
-
-const session = require("express-session");
-const apiRoutes =
-require("./routes/apiRoutes");
+app.use(express.static("public"));
+const apiRoutes = require("./routes/apiRoutes");
 app.use("/", apiRoutes);
+
+const bcrypt = require("bcrypt");
+const session = require("express-session");
+
+
 
 
 const {
@@ -64,7 +66,7 @@ app.use(session({
     saveUninitialized: false
 
 }));
-app.use(express.static("public"));
+
 app.use("/", authRoutes);
 app.use("/", clientRoutes);
 app.use("/", produitRoutes);
