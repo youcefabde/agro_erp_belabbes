@@ -50,4 +50,32 @@ router.post("/add-client", (req, res) => {
 
 });
 
+// Add Client Page
+router.get("/add", (req, res) => {
+
+    res.render("add-client");
+
+});
+router.post("/add", (req, res) => {
+
+    const { nom, telephone, adresse } = req.body;
+
+    const sql = `
+        INSERT INTO clients (nom, telephone, adresse)
+        VALUES (?, ?, ?)
+    `;
+
+    db.query(sql, [nom, telephone, adresse], (err) => {
+
+        if (err) {
+            console.log(err);
+            return res.send("Database Error");
+        }
+
+        res.redirect("/clients");
+
+    });
+
+});
+
 module.exports = router;

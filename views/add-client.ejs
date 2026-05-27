@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Client</title>
+
+    <link href="/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+<div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <%- include("partials/sidebar") %>
+
+    <!-- Main -->
+    <main class="flex-1 p-10">
+
+        <!-- Navbar -->
+        <%- include("partials/navbar") %>
+
+        <!-- Header -->
+        <div class="mb-8">
+
+            <h1 class="text-4xl font-bold text-gray-800">
+                Add Client
+            </h1>
+
+            <p class="text-gray-500 mt-2">
+                Create a new client
+            </p>
+
+        </div>
+
+        <!-- Form -->
+        <div class="bg-white p-8 rounded-2xl shadow max-w-3xl">
+
+            <form action="/clients/add" method="POST" class="space-y-6">
+
+                <!-- Name -->
+                <div>
+
+                    <label class="block mb-2 font-semibold text-gray-700">
+                        Client Name
+                    </label>
+
+                    <input type="text"
+                           name="nom"
+                           required
+                           class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500">
+
+                </div>
+
+                <!-- Phone -->
+                <div>
+
+                    <label class="block mb-2 font-semibold text-gray-700">
+                        Phone
+                    </label>
+
+                    <input type="text"
+                           name="telephone"
+                           required
+                           class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500">
+
+                </div>
+
+                <!-- Address -->
+                <div>
+
+                    <label class="block mb-2 font-semibold text-gray-700">
+                        Address
+                    </label>
+
+                    <textarea name="adresse"
+                              rows="4"
+                              required
+                              class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex gap-4">
+
+                    <button type="submit"
+                            class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-2xl shadow transition">
+
+                        Save Client
+
+                    </button>
+
+                    <a href="/clients"
+                       class="bg-gray-300 hover:bg-gray-400 px-6 py-3 rounded-2xl transition">
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- Footer -->
+        <%- include("partials/footer") %>
+
+    </main>
+
+</div>
+
+</body>
+</html>
