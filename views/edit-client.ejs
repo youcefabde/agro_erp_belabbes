@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Client</title>
+
+    <link href="/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+<div class="flex min-h-screen">
+
+    <%- include("partials/sidebar") %>
+
+    <main class="flex-1 p-10">
+
+        <%- include("partials/navbar") %>
+
+        <div class="mb-8">
+
+            <h1 class="text-4xl font-bold text-gray-800">
+                Edit Client
+            </h1>
+
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow max-w-3xl">
+
+            <form action="/clients/edit/<%= client.id %>" method="POST" class="space-y-6">
+
+                <div>
+
+                    <label class="block mb-2 font-semibold">
+                        Name
+                    </label>
+
+                    <input type="text"
+                           name="nom"
+                           value="<%= client.nom %>"
+                           class="w-full border rounded-xl px-4 py-3">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 font-semibold">
+                        Phone
+                    </label>
+
+                    <input type="text"
+                           name="telephone"
+                           value="<%= client.telephone %>"
+                           class="w-full border rounded-xl px-4 py-3">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 font-semibold">
+                        Address
+                    </label>
+
+                    <textarea name="adresse"
+                              rows="4"
+                              class="w-full border rounded-xl px-4 py-3"><%= client.adresse %></textarea>
+
+                </div>
+
+                <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-2xl">
+
+                    Update Client
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <%- include("partials/footer") %>
+
+    </main>
+
+</div>
+
+</body>
+</html>

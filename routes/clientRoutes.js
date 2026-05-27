@@ -1,9 +1,6 @@
 const express = require("express");
-
 const router = express.Router();
-
 const db = require("../db");
-
 router.get("/clients", (req, res) => {
 
     const sql = "SELECT * FROM clients";
@@ -23,7 +20,6 @@ router.get("/clients", (req, res) => {
     });
 
 });
-
 router.post("/add-client", (req, res) => {
 
     const nom = req.body.nom;
@@ -49,7 +45,6 @@ router.post("/add-client", (req, res) => {
     });
 
 });
-
 // Add Client Page
 router.get("/add", (req, res) => {
 
@@ -77,5 +72,64 @@ router.post("/add", (req, res) => {
     });
 
 });
+router.get("/edit/:id", (req, res) => {
 
+    const sql = "SELECT * FROM clients WHERE id = ?";
+
+    db.query(sql, [req.params.id], (err, result) => {
+
+        if (err) {
+            console.log(err);
+            return res.send("Database Error");
+        }
+
+        res.render("edit-client", {
+            client: result[0]
+        });
+
+    });
+
+});
+router.post("/edit/:id", (req, res) => {
+
+    const { nom, telephone, adresse } = req.body;
+
+    const sql = `
+        UPDATE clients
+        SET nom=?, telephone=?, adresse=?
+        WHERE id=?
+    `;
+
+    db.query(
+        sql,
+        [nom, telephone, adresse, req.params.id],
+        (err) => {
+
+            if (err) {
+                console.log(err);
+                return res.send("Database Error");
+            }
+
+            res.redirect("/clients");
+
+        }
+    );
+
+});
+router.get("/delete/:id", (req, res) => {
+
+    const sql = "DELETE FROM clients WHERE id = ?";
+
+    db.query(sql, [req.params.id], (err) => {
+
+        if (err) {
+            console.log(err);
+            return res.send("Database Error");
+        }
+
+        res.redirect("/clients");
+
+    });
+
+});
 module.exports = router;
