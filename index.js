@@ -76,7 +76,8 @@ app.get("/admin", isAuthenticated, isAdmin, (req, res) => {
                         totalClients: clientsResult[0].totalClients,
                         totalProduits: produitsResult[0].totalProduits,
                         totalFactures: facturesResult[0].totalFactures,
-                        totalRevenue: revenueResult[0].totalRevenue || 0
+                        totalRevenue: revenueResult[0].totalRevenue || 0,
+                        chiffreAffaires: 0
                     });
                 });
             });
