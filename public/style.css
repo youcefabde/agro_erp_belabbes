@@ -86,3 +86,12 @@ input, select {
 .submit-btn:hover {
     background: #31572c;
 }
+.submit-btn:hover {
+    background: #4b7c2a;
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+
+.tabs button:hover {
+    opacity: 0.9;
+}
