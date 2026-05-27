@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Factures</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+<div class="content">
+
+    <h1>Factures</h1>
+    <a href="/logout">
+    Logout
+</a>
+    
+
+    <form method="POST" action="/add-facture">
+
+    <select name="client_id">
+
+    <% clients.forEach(client => { %>
+
+        <option value="<%= client.id %>">
+
+            <%= client.nom %>
+
+        </option>
+
+    <% }) %>
+
+</select>
+<select name="produit_id">
+
+    <% produits.forEach(produit => { %>
+
+        <option value="<%= produit.id %>">
+
+            <%= produit.nom %>
+
+        </option>
+
+    <% }) %>
+
+</select>
+    <input
+type="number"
+name="quantite"
+placeholder="Quantité">
+
+    
+
+    <input type="date"
+    name="date_facture">
+
+    <button type="submit">
+        Ajouter
+    </button>
+
+</form>
+
+    <br>
+    <form method="GET" action="/factures">
+
+    <input type="text"
+    name="search"
+    placeholder="Search client">
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+<br>
+    |
+
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>ID</th>
+            <th>Client</th>
+            <th>Montant</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        
+
+        <% factures.forEach(facture => { %>
+
+            <tr>
+
+                <td><%= facture.id %></td>
+
+                <td><%= facture.client_nom %></td>
+
+                <td><%= facture.montant %> DA</td>
+
+                <td><%= facture.date_facture.toISOString().split("T")[0] %></td>
+
+                
+
+                <td>
+<a href="/edit-facture/<%= facture.id %>">
+    Edit
+</a> | 
+    <a href="/delete-facture/<%= facture.id %>">
+        Delete
+    </a>||
+    <a href="/invoice/<%= facture.id %>/pdf">
+    PDF
+</a>
+
+</td>
+
+
+            </tr>
+
+        <% }) %>
+
+    </table>
+    <br>
+
+<a href="/factures?page=<%= currentPage - 1 %>">
+    Previous
+</a>
+
+|
+
+<a href="/factures?page=<%= currentPage + 1 %>">
+    Next
+</a>
+
+</div>
+
+</body>
+</html>

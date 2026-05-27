@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Produits</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+<div class="content">
+
+    <h1>Produits</h1>
+        <a href="/logout">
+    Logout
+</a>
+    <form method="POST" action="/add-produit">
+
+        <input
+        type="text"
+        name="nom"
+        placeholder="Nom produit">
+
+        <input
+        type="number"
+        name="prix"
+        placeholder="Prix">
+
+        <input
+        type="number"
+        name="stock"
+        placeholder="Stock">
+
+        <button type="submit">
+            Ajouter
+        </button>
+
+    </form>
+
+    <br>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Stock</th>
+
+        </tr>
+
+        <% produits.forEach(produit => { %>
+
+            <tr>
+
+                <td><%= produit.id %></td>
+
+                <td><%= produit.nom %></td>
+
+                <td><%= produit.prix %> DA</td>
+
+                <td><%= produit.stock %></td>
+
+            </tr>
+
+        <% }) %>
+
+    </table>
+
+</div>
+
+</body>
+</html>

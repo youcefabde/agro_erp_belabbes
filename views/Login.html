@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+<h1>Create Account</h1>
+<select id="language">
+
+    <option value="fr">
+        Français
+    </option>
+
+    <option value="ar">
+        العربية
+    </option>
+
+    <option value="en">
+        English
+    </option>
+
+</select>
+
+<form method="POST" action="/register">
+
+    <input type="email" name="email" placeholder="Email">
+    <br><br>
+
+    <input type="password" name="password" placeholder="Password">
+    <br><br>
+
+    <select name="role">
+
+        <option value="admin">Admin</option>
+
+        <option value="moderator">Moderator</option>
+
+        <option value="employee">Employee</option>
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<hr>
+
+<h1>Login</h1>
+
+<form method="POST" action="/login">
+
+    <input type="email" name="email" placeholder="Email">
+    <br><br>
+
+    <input type="password" name="password" placeholder="Password">
+    <br><br>
+
+    <button type="submit">Login</button>
+
+</form>
+<script>
+
+const language =
+document.getElementById("language");
+
+language.addEventListener("change", () => {
+
+    const lang = language.value;
+
+    if (lang === "ar") {
+
+        document.body.dir = "rtl";
+
+    } else {
+
+        document.body.dir = "ltr";
+
+    }
+
+});
+
+</script>
+</body>
+</html>

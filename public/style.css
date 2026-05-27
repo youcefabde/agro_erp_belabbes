@@ -1,0 +1,43 @@
+body{
+    margin:0;
+    font-family:Arial;
+    display:flex;
+    background:#f5f5f5;
+}
+
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#1e293b;
+    color:white;
+    padding:20px;
+}
+
+.sidebar h2{
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+    background:none;
+}
+
+.sidebar li{
+    margin:20px 0;
+    cursor:pointer;
+}
+
+.content{
+    flex:1;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    width:250px;
+    margin-bottom:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
