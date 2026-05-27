@@ -1,56 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dashboard</title>
-
-  <link href="/output.css" rel="stylesheet">
-</head>
+<%- include("partials/head") %>
 
 <body class="bg-gray-100">
 
 <div class="flex min-h-screen">
 
-    <!-- Sidebar -->
-    <%- include("partials/sidebar") %>
+  <%- include("partials/sidebar") %>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-10">
+  <main class="flex-1 p-10">
 
-        <!-- Navbar -->
-        <%- include("partials/navbar") %>
+    <%- include("partials/navbar") %>
 
-        <!-- Dashboard Cards -->
+  <h1 class="text-4xl font-bold">
+    Dashboard
+</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-            <div class="bg-white p-6 rounded-2xl shadow">
-                <h2 class="text-gray-500">Clients</h2>
-                <p class="text-4xl font-bold"><%= totalClients %></p>
-            </div>
-
-            <div class="bg-white p-6 rounded-2xl shadow">
-                <h2 class="text-gray-500">Produits</h2>
-                <p class="text-4xl font-bold"><%= totalProduits %></p>
-            </div>
-
-            <div class="bg-white p-6 rounded-2xl shadow">
-                <h2 class="text-gray-500">Factures</h2>
-                <p class="text-4xl font-bold"><%= totalFactures %></p>
-            </div>
-
-        </div>
-
-        <!-- Footer -->
-        <%- include("partials/footer") %>
-
-    </main>
+  </main>
 
 </div>
 
+<%- include("partials/scripts") %>
+
 </body>
-
-
 </html>
