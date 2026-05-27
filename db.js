@@ -16,14 +16,12 @@ connection.connect((err) => {
 });
 
 module.exports = connection;*/
-const sqlite3 = require('sqlite3').verbose();
+const mongoose = require("mongoose");
 
-const db = new sqlite3.Database('./database.db', (err) => {
-  if (err) {
-    console.log(err.message);
-  } else {
-    console.log('Connected to SQLite database.');
-  }
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log("MongoDB connected");
+})
+.catch((err) => {
+    console.log(err);
 });
-
-module.exports = db;
