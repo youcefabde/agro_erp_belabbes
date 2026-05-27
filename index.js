@@ -160,7 +160,9 @@ app.get("/employee",isAuthenticated,isEmployee,(req, res) => {
 
 });
 
-
+app.get("/", (req, res) => {
+    res.send("Server is running 🚀");
+});
 
 
 
